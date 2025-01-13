@@ -13,6 +13,7 @@ import ItemDetail from "./pages/ItemDetail";
 import Form from "./pages/Form";
 import Success from "./pages/Success";
 import Help from "./pages/Help";
+import Agenda from "./pages/Agenda";
 
 const queryClient = new QueryClient();
 
@@ -34,6 +35,7 @@ const App = () => (
           <Route path="/form" element={<Form />} />
           <Route path="/success" element={<Success />} />
           <Route path="/help" element={<Help />} />
+          <Route path="/agenda" element={<Agenda />} />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>
