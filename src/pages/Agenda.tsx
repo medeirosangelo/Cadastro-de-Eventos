@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import MobileLayout from '../components/MobileLayout';
 import { Calendar } from '@/components/ui/calendar';
 import { ptBR } from 'date-fns/locale';
-import { format } from 'date-fns';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Clock, AlertTriangle, Calendar as CalendarIcon } from 'lucide-react';
+import { Card, CardContent } from '@/components/ui/card';
+import { AlertTriangle, Calendar as CalendarIcon } from 'lucide-react';
+import { format } from 'date-fns';
 
 const Agenda = () => {
   const [selectedDate, setSelectedDate] = useState<Date | undefined>(new Date());
@@ -17,17 +17,20 @@ const Agenda = () => {
       id: 1,
       titulo: "Manutenção de Equipamentos",
       data: new Date(),
-      prioridade: "alta",
-      descricao: "Realizar manutenção preventiva nos equipamentos do setor A"
+      prioridade: "alta"
     },
     {
       id: 2,
       titulo: "Inventário Mensal",
-      data: new Date(),
-      prioridade: "media",
-      descricao: "Realizar contagem de estoque no almoxarifado"
+      data: new Date(Date.now() + 86400000), // Amanhã
+      prioridade: "media"
     },
-    // Adicione mais eventos conforme necessário
+    {
+      id: 3,
+      titulo: "Revisão de Ferramentas",
+      data: new Date(Date.now() + 172800000), // Depois de amanhã
+      prioridade: "baixa"
+    }
   ];
 
   const getPrioridadeColor = (prioridade: string) => {
@@ -61,22 +64,17 @@ const Agenda = () => {
 
               <div className="space-y-2">
                 {eventos.map((evento) => (
-                  <Card key={evento.id}>
-                    <CardHeader className="py-3">
-                      <div className="flex justify-between items-start">
-                        <CardTitle className="text-sm font-medium">
-                          {evento.titulo}
-                        </CardTitle>
-                        <Badge variant="outline" className={getPrioridadeColor(evento.prioridade)}>
+                  <Card key={evento.id} className="hover:shadow-md transition-shadow">
+                    <CardContent className="pt-4">
+                      <div className="flex justify-between items-center mb-2">
+                        <span className="font-medium">{evento.titulo}</span>
+                        <Badge className={getPrioridadeColor(evento.prioridade)}>
                           {evento.prioridade}
                         </Badge>
                       </div>
-                    </CardHeader>
-                    <CardContent className="py-2">
-                      <p className="text-sm text-gray-600">{evento.descricao}</p>
-                      <div className="flex items-center mt-2 text-sm text-gray-500">
-                        <Clock className="w-4 h-4 mr-1" />
-                        {format(evento.data, "dd 'de' MMMM', às' HH:mm", { locale: ptBR })}
+                      <div className="flex items-center text-sm text-gray-500">
+                        <CalendarIcon className="w-4 h-4 mr-1" />
+                        {format(evento.data, "dd 'de' MMMM", { locale: ptBR })}
                       </div>
                     </CardContent>
                   </Card>
@@ -87,7 +85,7 @@ const Agenda = () => {
 
           <TabsContent value="prioridade">
             <div className="space-y-4">
-              {['urgente', 'alta', 'media', 'baixa'].map((prioridade) => (
+              {['alta', 'media', 'baixa'].map((prioridade) => (
                 <div key={prioridade} className="space-y-2">
                   <h3 className="capitalize font-medium text-sm flex items-center gap-2">
                     <AlertTriangle className="w-4 h-4" />
@@ -96,17 +94,14 @@ const Agenda = () => {
                   {eventos
                     .filter(evento => evento.prioridade === prioridade)
                     .map(evento => (
-                      <Card key={evento.id}>
-                        <CardHeader className="py-3">
-                          <CardTitle className="text-sm font-medium">
-                            {evento.titulo}
-                          </CardTitle>
-                        </CardHeader>
-                        <CardContent className="py-2">
-                          <p className="text-sm text-gray-600">{evento.descricao}</p>
-                          <div className="flex items-center mt-2 text-sm text-gray-500">
-                            <CalendarIcon className="w-4 h-4 mr-1" />
-                            {format(evento.data, "dd 'de' MMMM", { locale: ptBR })}
+                      <Card key={evento.id} className="hover:shadow-md transition-shadow">
+                        <CardContent className="pt-4">
+                          <div className="flex justify-between items-center">
+                            <span className="font-medium">{evento.titulo}</span>
+                            <div className="flex items-center text-sm text-gray-500">
+                              <CalendarIcon className="w-4 h-4 mr-1" />
+                              {format(evento.data, "dd/MM", { locale: ptBR })}
+                            </div>
                           </div>
                         </CardContent>
                       </Card>

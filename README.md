@@ -1,69 +1,93 @@
-# Welcome to your Lovable project
+# Sistema de Gerenciamento de Itens e Agenda
 
-## Project info
+Este é um sistema web desenvolvido em React para gerenciamento de itens e agenda, com funcionalidades de favoritos, notificações e perfil de usuário.
 
-**URL**: https://lovable.dev/projects/680d5b49-b093-4c4e-abfe-328c102bae3c
+## 🚀 Funcionalidades
 
-## How can I edit this code?
+### 📦 Itens
+- Cadastro de novos itens com título, descrição, categoria e prioridade
+- Visualização em lista com detalhes
+- Edição e exclusão de itens
+- Marcação de favoritos
+- Upload de imagens
 
-There are several ways of editing your application.
+### 📅 Agenda
+- Visualização de eventos por data
+- Filtro por prioridade
+- Lembretes de vencimento
+- Calendário interativo
 
-**Use Lovable**
+### ⭐ Favoritos
+- Marcação de itens como favoritos
+- Lista personalizada de favoritos
+- Remoção rápida de favoritos
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/680d5b49-b093-4c4e-abfe-328c102bae3c) and start prompting.
+### 🔔 Notificações
+- Lembretes de itens próximos ao vencimento
+- Notificações de sistema
 
-Changes made via Lovable will be committed automatically to this repo.
+## 🛠️ Tecnologias Utilizadas
 
-**Use your preferred IDE**
+- React
+- TypeScript
+- Tailwind CSS
+- Shadcn/UI
+- React Router
+- React Query
+- Lucide Icons
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 📱 Layout Responsivo
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+O sistema possui layout responsivo, adaptando-se a diferentes tamanhos de tela:
+- Mobile
+- Tablet
+- Desktop
 
-Follow these steps:
+## 🔒 Autenticação
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+Sistema de login e registro de usuários com:
+- Autenticação segura
+- Perfil personalizado
+- Gerenciamento de sessão
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+## 🎨 Interface
 
-# Step 3: Install the necessary dependencies.
-npm i
+- Design moderno e intuitivo
+- Temas claros e escuros
+- Componentes reutilizáveis
+- Feedback visual através de toasts
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+## 📋 Pré-requisitos
+
+- Node.js
+- npm ou yarn
+
+## 🚀 Instalação
+
+1. Clone o repositório
+```bash
+git clone [url-do-repositorio]
+```
+
+2. Instale as dependências
+```bash
+npm install
+```
+
+3. Execute o projeto
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+## 👥 Contribuição
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+1. Faça um Fork do projeto
+2. Crie uma Branch para sua Feature
+3. Adicione suas mudanças
+4. Faça o Commit
+5. Faça o Push
+6. Abra um Pull Request
 
-**Use GitHub Codespaces**
+## 📄 Licença
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with .
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/680d5b49-b093-4c4e-abfe-328c102bae3c) and click on Share -> Publish.
-
-## I want to use a custom domain - is that possible?
-
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
+Este projeto está sob a licença MIT.
